@@ -8,7 +8,11 @@ from faceFunctions import load_known_encodings, compare_faces
 from tables import FaceEncoding
 from attendence import log_attendance
 
-CAMERA_URL = "rtsp://admin:RBCFHK@192.168.1.198:554/h264"
+from dotenv import load_dotenv
+load_dotenv()
+
+CAMERA_URL = os.getenv("CAMERA_URL")
+
 camera_monitoring = False           # Boolean flag telling if the camera monitoring thread is on/off
 camera_thread = None                # store the (threading.Thread) object for the camera monitoring thread
 camera_capture = None               # store the OpenCV(VideoCapture) object for accessing the camera
