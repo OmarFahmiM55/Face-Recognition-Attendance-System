@@ -12,7 +12,7 @@ DB_PASS = os.getenv("DB_PASS")
 DB_HOST = os.getenv("DB_HOST")
 DB_NAME = os.getenv("DB_NAME")
 
-SQL_URL = "mysql+pymysql://root:Hex2003%40@localhost/ormtest"           # mysql+pymysql://<username>:<password>@<host>/<database_name>  # @ => encoded => %40
+SQL_URL = f"mysql+pymysql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}"          # mysql+pymysql://<username>:<password>@<host>/<database_name>  # @ => encoded => %40
 
 engine = create_engine(SQL_URL)                                         # start the db connection
 SessionLocal = sessionmaker(bind=engine)                                # we use it for queries ( bulding sessions )
